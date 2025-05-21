@@ -59,7 +59,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun addNote(note: Note) {
         _notes.add(note)
-        saveNotes()
     }
     fun getNoteById(id: String): Note? {
         return notes.find { it.id == id }
@@ -68,12 +67,10 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         val index = _notes.indexOfFirst{it.id==note.id}
         if(index != -1){
             _notes[index] = note
-            saveNotes()
         }
     }
     fun deleteNote(id: String){
         _notes.removeIf{it.id==id}
-        saveNotes()
     }
     fun toggleNotesSelection(noteId: String){
         selectedNoteIds = selectedNoteIds.let {
@@ -113,6 +110,10 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
                 e.printStackTrace()
             }
         }
+    }
+
+    fun saveNotesManually(){
+        saveNotes()
     }
     private fun saveNotes() {
         viewModelScope.launch(Dispatchers.IO) {

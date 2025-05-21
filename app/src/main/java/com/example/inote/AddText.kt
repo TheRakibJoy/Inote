@@ -97,9 +97,9 @@ fun AddText(
             )
         },
         bottomBar = {
-            BottomAppBar {
-                Text(text = "Bottom Bar")
-            }
+//            BottomAppBar {
+//                Text(text = "Bottom Bar")
+//            }
         },
         content = {innerPadding->
             Column(

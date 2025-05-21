@@ -76,7 +76,7 @@ fun NoteCard(
 
 
 ){
-    val backgroundColor = if(isSelected) MaterialTheme.colorScheme.secondary.copy(alpha = 0.3f) else MaterialTheme.colorScheme.surface
+    val backgroundColor = if(isSelected) MaterialTheme.colorScheme.secondary.copy(alpha = 1f) else MaterialTheme.colorScheme.surface
     Card(
         modifier = Modifier
             .fillMaxWidth()
